@@ -1,5 +1,5 @@
 import React from 'react';
-import MagicCard from '../MagicCard';
+import MagicCard from '../../atoms/MagicCard';
 
 const WeAreDone = () => (
   <MagicCard>

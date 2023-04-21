@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import MagicCard from './components/MagicCard';
-import UserNameForm from './components/UserNameForm';
-import Card from './components/Card';
-import WeAreDone from './components/WeAreDone';
+import MagicCard from './components/atoms/MagicCard';
+import UserNameForm from './components/atoms/UserNameForm';
+import Card from './components/atoms/Card';
+import WeAreDone from './components/molecules/WeAreDone';
 
 import './styles/main.css';
 

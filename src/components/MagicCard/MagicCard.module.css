@@ -1,0 +1,54 @@
+.magicCard {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
+
+.magicCard__wrapper {
+    border-radius: 25px;
+    display: flex;
+    height: 250px;
+    max-width: 500px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.magicCard__wrapper div {
+    color: #2D2400;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.magicCard__wrapper>div:last-child {
+    background-color: #FBE54D;
+    padding: 27px 10px 0 20px;
+}
+
+.magicCard__wrapper>div:last-child button {
+    align-self: flex-end;
+    background-color: #FFF;
+    border-radius: 30px;
+    border: solid 0px #fff;
+    font-size: 15px;
+    height: 50px;
+    width: 50px;
+}
+
+.magicCard__wrapper>div:last-child input {
+    background-color: transparent;
+    border: 0;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    height: 50px;
+    outline: 0;
+}
+
+.magicCard__wrapper>div:last-child input::placeholder {
+    color: rgba(0, 0, 0, 0.7);
+}

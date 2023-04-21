@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 const UserNameForm = ({ onSubmit }) => {
   const [changingMyName, setChangingMyName] = useState('');
   const inputHolder = useRef();
-  
+
   useEffect(() => {
     inputHolder.current.focus();
   }, []);
@@ -12,7 +12,7 @@ const UserNameForm = ({ onSubmit }) => {
     event.preventDefault();
     onSubmit(changingMyName)
   };
-  
+
   const handleChange = event => {
     setChangingMyName(event.target.value)
   }
@@ -21,7 +21,6 @@ const UserNameForm = ({ onSubmit }) => {
     <>
       <h1>What's your Name Human?</h1>
       <form onSubmit={handleHelloForm} className='flexCol form'>
-        {/* <label htmlFor="username"> Are you ready to play?:</label> */}
         <input
           value={changingMyName}
           onChange={handleChange}

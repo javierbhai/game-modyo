@@ -6,7 +6,6 @@ const WeAreDone = () => (
     <h1>Well done Human</h1>
     <i className="fa fa-heart" aria-hidden="true"></i>
   </MagicCard>
-
 );
 
 export default WeAreDone;

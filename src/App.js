@@ -24,10 +24,9 @@ const App = () => {
   const [prevSelectedCard, setPrevSelectedCard] = useState(-1);
   const [prevCardId, setPrevCardId] = useState(-1);
 
-  // Form Handlers ::::::
-  const handleHelloForm = name => setHelloMyNameIs(name);
+  const [right, setRight] = useState(0);
+  const [miss, setMiss] = useState(0);
 
-  // Fetching Data ::::::
   useEffect(() => {
     fetch("https://fed-team.modyo.cloud/api/content/spaces/animals/types/game/entries?per_page=8")
       .then((response) => response.json())
@@ -46,20 +45,28 @@ const App = () => {
       });
   }, []);
 
+  // Form Handlers ::::::
+  const handleHelloForm = name => setHelloMyNameIs(name);
+
+  // Fetching Data ::::::
+  useEffect(() => {
+    console.log('right, miss', right, miss)
+  }, [right, miss]);
+
   // Flipping Cards Logic  ::::::
   const isCardMatch = (card1, card2, card1Id, card2Id) => {
     if (card1 === card2) {
       const hideCard = shuffledCard.slice();
       hideCard[card1Id] = -1;
       hideCard[card2Id] = -1;
+      setRight(prevState => prevState + 1)
       setTimeout(() => setShuffledCard(hideCard), 1000);
     } else {
       const flipBack = isFlipped.slice();
       flipBack[card1Id] = false;
       flipBack[card2Id] = false;
-      setTimeout(() => {
-        setIsFlipped(flipBack);
-      }, 1000);
+      setMiss(prevState => prevState + 1)
+      setTimeout(() => setIsFlipped(flipBack), 1000);
     }
   };
 
@@ -99,20 +106,26 @@ const App = () => {
             <UserNameForm onSubmit={handleHelloForm} />
           </MagicCard>
           :
-          <section className="grid-container">
-            {
-              shuffledCard.map((cardNumber, index) =>
-                <Card
-                  key={index}
-                  id={index}
-                  cardNumber={cardNumber.index}
-                  card={cardNumber}
-                  isFlipped={isFlipped[index]}
-                  handleClick={handleClick}
-                />
-              )
-            }
-          </section>
+          <>
+            <section className="fixer">
+              <h4>Hi: {helloMyNameIs}</h4>
+              <p><i className="fa fa-check-circle green" aria-hidden="true"></i> {right} --- <i className="fa fa-times-circle red" aria-hidden="true"></i> {miss}</p>
+            </section>
+            <section className="grid-container">
+              {
+                shuffledCard.map((cardNumber, index) =>
+                  <Card
+                    key={index}
+                    id={index}
+                    cardNumber={cardNumber.index}
+                    card={cardNumber}
+                    isFlipped={isFlipped[index]}
+                    handleClick={handleClick}
+                  />
+                )
+              }
+            </section>
+          </>
         )
       }
     </div>

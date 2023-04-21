@@ -1,0 +1,153 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: rgb(17,22,34);
+  background: linear-gradient(135deg, rgba(17,22,34,1) 0%, rgba(17,22,34,1) 42%, rgba(32,33,83,1) 83%, rgba(45,40,85,1) 96%);
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.magicCard{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.magicCard__wrapper{
+  max-width: 500px;
+  height: 250px;
+  border-radius: 25px;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.magicCard__wrapper div{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  color: #2D2400;
+}
+
+.magicCard__wrapper > div:last-child{
+  background-color: #FBE54D;
+  padding: 27px 10px 0 20px;
+}
+
+.magicCard__wrapper > div:last-child button{
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: #FFF;
+  border: solid 0px #fff;
+  font-size: 15px;
+  align-self: flex-end;
+}
+
+.magicCard__wrapper > div:last-child input {
+  background-color: transparent;
+  border: 0;
+  height: 50px;
+  outline: 0;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: #000;
+}
+
+.magicCard__wrapper > div:last-child input::placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.flexCol{
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+  height: 100vh;
+}
+
+.hide-card {
+  display: none;
+  position: absolute;
+}
+
+.card__two {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.card__wrapper {
+  height: 100%;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 300ms;
+  transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  transition: transform 300ms, -webkit-transform 300ms;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+
+.card__wrapper .front {
+  background-image: url('../../public/darkcat.png');
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  font-size: 80px;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+}
+
+.card__wrapper .back {
+  background: #2B2930;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: #D12F2D;
+}
+
+.clever.front {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.clever.back {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
